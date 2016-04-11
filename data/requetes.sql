@@ -26,7 +26,9 @@ SET time_zone = "+00:00";
 -- 1) Quels sont les clients ayant annulé leurs réservations sur le premier trimestre 2016 ?
 --
 
-Select c.`client_lastname` AS nom, c.`client_firstname` AS prenom
+SELECT
+  c.`client_lastname`  AS nom,
+  c.`client_firstname` AS prenom
 FROM `booking` b, `client` c
 WHERE b.`booking_idclient` = c.`client_idclient`
   AND b.`booking_canceled` = 1
@@ -36,7 +38,9 @@ WHERE b.`booking_idclient` = c.`client_idclient`
 -- 2) Quel est le client ayant réservé le plus de nuitées en 2015 ?
 --
 
-Select c.`client_lastname` AS nom, c.`client_firstname` AS prenom
+SELECT
+  c.`client_lastname`  AS nom,
+  c.`client_firstname` AS prenom
 FROM `booking` b, `client` c
 WHERE b.`booking_idclient` = c.`client_idclient`
   AND(b.`booking_datestart` BETWEEN '2015-01-01' AND '2015-12-31'
