@@ -30,7 +30,6 @@ SET FOREIGN_KEY_CHECKS = 0; -- disable a foreign keys check
 SET AUTOCOMMIT = 0; -- disable autocommit
 START TRANSACTION; -- begin transaction
 
-TRUNCATE `address`;
 TRUNCATE `admin`;
 TRUNCATE `booking`;
 TRUNCATE `client`;
