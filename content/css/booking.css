@@ -109,7 +109,10 @@
     vertical-align: top;
 }
 
-
+#booking-stay-bedroom-number,
+#booking-stay-person-number {
+    border: none;
+}
 
 /*----------------
     DATE FIELDS

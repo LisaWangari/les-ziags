@@ -72,12 +72,12 @@
                                 <tr>
                                     <td>
                                         <label for="arrival-datepicker">Date d'arrivée</label>
-                                        <div class="input-container input-container-date"><input type="text" placeholder="dd/mm/aaaa" id="arrival-datepicker" class="input-date-arrival" name="arrivalDate"  required></div>
+                                        <div class="input-container input-container-date"><input type="text" placeholder="dd/mm/aaaa" id="arrival-datepicker" class="input-date-arrival" name="arrival_date" required></div>
                                         <label for="departure-datepicker">Date de départ</label>
-                                        <div class="input-container input-container-date"><input type="text" name="departureDate" placeholder="dd/mm/aaaa" id="departure-datepicker" class="input-date-departure" required></div>
+                                        <div class="input-container input-container-date"><input type="text" placeholder="dd/mm/aaaa" id="departure-datepicker" class="input-date-departure" name="departure_date" required></div>
 
-                                        <label for="booking-stay-bedroom-number">Nombre de personnes</label><br />
-                                        <input type="number" name='number' step="1" min="1" max="12" id="booking-stay-bedroom-number" required>
+                                        <label for="booking-stay-person-number">Nombre de personnes</label><br />
+                                        <input type="number" step="1" min="1" max="20" id="booking-stay-person-number" name="person_number" required><br />
                                     </td>
                                     <td>
                                         Formule
@@ -89,7 +89,6 @@
                                             </label>
                                         </div>
                                         <br />
-
                                         <div class="input-switch">
                                             <input type="checkbox" class="input-switch-checkbox" id="bathroom-switch" name="bathroom" value ="1" checked>
                                             <label class="input-switch-label" for="bathroom-switch" id="bathroom-switch-label">
@@ -97,6 +96,9 @@
                                                 <span class="input-switch-switch"></span>
                                             </label>
                                         </div>
+                                        <br />
+                                        <label for="booking-stay-bedroom-number">Nombre de chambres</label><br />
+                                        <input type="number" name="bedroom_number" step="1" min="1" max="12" id="booking-stay-bedroom-number" required>
                                     </td>
                                     <td>
                                         <p>
@@ -127,6 +129,11 @@
         <script type="text/javascript" src="/content/js/script.js"></script>
         <script type="text/javascript" src="/content/js/datePicker.js"></script>
         <script>
+            $("#booking-stay-person-number").spinner({
+                min : 1,
+                max : 20,
+                showOn : 'both'
+            });
             $("#booking-stay-bedroom-number").spinner({
                 min : 1,
                 max : 12,
