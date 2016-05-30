@@ -32,4 +32,10 @@ if (isset($_POST['number'])){$nbPersons = $_POST['number'];}
 $purpose = (isset($_POST['purpose']) ? $_POST['purpose'] : '');
 $_SESSION["idBooking"]=$idBooking;
 $newBooking = "INSERT INTO `booking` (`booking_idbooking`, `booking_idroom`, `booking_idclient`, `booking_idpayment`, `booking_datestart`, `booking_dateend`, `booking_nbnights`, `booking_price`, `booking_canceled`, `booking_nbpersons`, `booking_purpose`) 
-                              VALUES ('$idBooking',       '$idRoom',        '$idClient',         '$idPayment',       '$arrivalDate',      '$departureDate',     '$nbNights',       '$price',      '$canceled',       '$nbPersons',           '$purpose'";
+                VALUES ('$idBooking','$idRoom','$idClient','$idPayment','$arrivalDate','$departureDate','$nbNights','$price','$canceled','$nbPersons','$purpose'";
+
+if (mysqli_query($db, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($db);
+}

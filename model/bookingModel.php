@@ -57,7 +57,7 @@ function getRoomAvailable($dateStart,$dateEnd) {
         elseif (checkDates(2, $dateStart, $dateEnd)) { $room = 2  ; }
         elseif (checkDates(3, $dateStart, $dateEnd)) { $room = 3  ; }
         elseif (checkDates(4, $dateStart, $dateEnd)) { $room = 4  ; }
-        elseif (checkDates(5, $dateStart, $dateEnd)) { $room = 5  ;  }
+        elseif (checkDates(5, $dateStart, $dateEnd)) { $room = 5  ; }
         elseif (checkDates(6, $dateStart, $dateEnd)) { $room = 6  ; }
         elseif (checkDates(7, $dateStart, $dateEnd)) { $room = 7  ;  }
         elseif (checkDates(8, $dateStart, $dateEnd)) { $room = 8  ;  }
