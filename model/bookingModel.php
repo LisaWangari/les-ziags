@@ -51,21 +51,99 @@ function checkDates ($room,$dateStart,$dateEnd){
         $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = $room AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
         if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return TRUE;}else {return FALSE;}
 }
-
-function checkRoomAvailable($dateStart,$dateEnd) { //renvoie la liste des chambres libres(room_roomnbr) pour les dates données
-        if (checkDates(1, $dateStart, $dateEnd)) { $roomList[] = 1; }
-        if (checkDates(2, $dateStart, $dateEnd)) { $roomList[] = 2; }
-        if (checkDates(3, $dateStart, $dateEnd)) { $roomList[] = 3; }
-        if (checkDates(4, $dateStart, $dateEnd)) { $roomList[] = 4; }
-        if (checkDates(5, $dateStart, $dateEnd)) { $roomList[] = 5; }
-        if (checkDates(6, $dateStart, $dateEnd)) { $roomList[] = 6; }
-        if (checkDates(7, $dateStart, $dateEnd)) { $roomList[] = 7; }
-        if (checkDates(8, $dateStart, $dateEnd)) { $roomList[] = 8; }
-        if (checkDates(9, $dateStart, $dateEnd)) { $roomList[] = 9; }
-        if (checkDates(10, $dateStart, $dateEnd)) { $roomList[] = 10; }
-        if (checkDates(11, $dateStart, $dateEnd)) { $roomList[] = 11; }
-        if (checkDates(12, $dateStart, $dateEnd)) { $roomList[] = 12; }
-        if (empty($roomList)){$roomList[] = 0;}
+function getArrayRoomAvailable($dateStart,$dateEnd) { //
+    $roomList = array(
+        0 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 1
+        ),
+        1 => array(
+            'roomNbr' => '2',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => '1'
+        ),
+        2 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => '1'
+        ),
+        3 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 1
+        ),
+        4 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 1
+        ),
+        5 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        6 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        7 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        8 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        9 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        10 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        11 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        12 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        )
+    );
+        if (checkDates(1, $dateStart, $dateEnd)) { $roomList[0]['available'] = true ; }
+        if (checkDates(2, $dateStart, $dateEnd)) { $roomList[1]['available'] = true ; }
+        if (checkDates(3, $dateStart, $dateEnd)) { $roomList[2]['available'] = true ; }
+        if (checkDates(4, $dateStart, $dateEnd)) { $roomList[3]['available'] = true ; }
+        if (checkDates(5, $dateStart, $dateEnd)) { $roomList[4]['available'] = true ; }
+        if (checkDates(6, $dateStart, $dateEnd)) { $roomList[5]['available'] = true ; }
+        if (checkDates(7, $dateStart, $dateEnd)) { $roomList[6]['available'] = true ; }
+        if (checkDates(8, $dateStart, $dateEnd)) { $roomList[7]['available'] = true ; }
+        if (checkDates(9, $dateStart, $dateEnd)) { $roomList[8]['available'] = true ; }
+        if (checkDates(10, $dateStart, $dateEnd)) { $roomList[9]['available'] = true ; }
+        if (checkDates(11, $dateStart, $dateEnd)) { $roomList[10]['available'] = true ; }
+        if (checkDates(12, $dateStart, $dateEnd)) { $roomList[11]['available'] = true ; }
         return $roomList;
 }
 
