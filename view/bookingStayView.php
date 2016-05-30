@@ -75,12 +75,9 @@
                                         <div class="input-container input-container-date"><input type="text" placeholder="dd/mm/aaaa" id="arrival-datepicker" class="input-date-arrival" name="arrival_date" required></div>
                                         <label for="departure-datepicker">Date de départ</label>
                                         <div class="input-container input-container-date"><input type="text" placeholder="dd/mm/aaaa" id="departure-datepicker" class="input-date-departure" name="departure_date" required></div>
-
-                                        <label for="booking-stay-person-number">Nombre de personnes</label><br />
-                                        <input type="number" step="1" min="1" max="20" id="booking-stay-person-number" name="person_number" required><br />
                                     </td>
                                     <td>
-                                        Formule
+                                        <p>Formule</p><br />
                                         <div class="input-switch">
                                             <input type="checkbox" class="input-switch-checkbox" id="board-switch" name="board" value = "1" checked>
                                             <label class="input-switch-label" for="board-switch" id="board-switch-label">
@@ -88,36 +85,47 @@
                                                 <span class="input-switch-switch"></span>
                                             </label>
                                         </div>
-                                        <br />
+                                        <p style="font-size: 12px;">
+                                            <strong>Pension complète</strong>:<br />
+                                            Petit déjeuner / Déjeuner / Dîner<br />
+                                            <strong>Demi-pension</strong>:<br />
+                                            Petit-déjeuner / Dîner
+                                        </p>
+                                        <!-- Salle de bain
                                         <div class="input-switch">
                                             <input type="checkbox" class="input-switch-checkbox" id="bathroom-switch" name="bathroom" value ="1" checked>
                                             <label class="input-switch-label" for="bathroom-switch" id="bathroom-switch-label">
                                                 <span class="input-switch-inner"></span>
                                                 <span class="input-switch-switch"></span>
                                             </label>
-                                        </div>
-                                        <br />
-                                        <label for="booking-stay-bedroom-number">Nombre de chambres</label><br />
-                                        <input type="number" name="bedroom_number" step="1" min="1" max="12" id="booking-stay-bedroom-number" required>
+                                        </div> -->
                                     </td>
                                     <td>
-                                        <p>
-                                            Motif<br />
-                                            <input type="radio" name="purpose" value="business" id="booking-stay-purpose-business" required /><label for="booking-stay-purpose-business">  Voyage d'affaire</label><br />
-                                            <input type="radio" name="purpose" value="tourism" id="booking-stay-purpose-tourism" /><label for="booking-stay-purpose-tourism">  Tourisme</label><br />
-                                            <input type="radio" name="purpose" value="none" id="booking-stay-purpose-none" /><label for="booking-stay-purpose-none">  Autre</label>
-                                        </p>
+                                        <p>Motif</p><br />
+                                        <input type="radio" name="purpose" value="business" id="booking-stay-purpose-business" required /><label for="booking-stay-purpose-business">  Voyage d'affaire</label><br />
+                                        <input type="radio" name="purpose" value="tourism" id="booking-stay-purpose-tourism" /><label for="booking-stay-purpose-tourism">  Tourisme</label><br />
+                                        <input type="radio" name="purpose" value="none" id="booking-stay-purpose-none" /><label for="booking-stay-purpose-none">  Autre</label>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <label for="booking-stay-person-number">Nombre de personnes</label><br />
+                                        <input type="number" step="1" min="1" max="20" id="booking-stay-person-number" name="person_number" required>
+                                    </td>
+                                    <td>
+                                        <label for="booking-stay-bedroom-number">Nombre de chambres</label><br />
+                                        <input type="number" name="bedroom_number" step="1" min="1" max="12" id="booking-stay-bedroom-number" required>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td colspan="3">
-                                        <button class="button-submit">Réserver ></button>
+                                        <button class="button-submit">Suite ></button>
                                     </td>
                                 </tr>
                             </table>
                         </form>
                     </div>
-
                 </div>
             </div>
 
