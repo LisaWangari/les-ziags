@@ -18,18 +18,18 @@ if (isset($_POST['board'])){
 }
 
 $arrivalDate =(isset($_POST['arrivalDate']) ? $_POST['arrivalDate'] : '');
-
-
 $departureDate = (isset($_POST['departureDate']) ? $_POST['departureDate'] : '');
 $idBooking = generateRandId();
+$idRoom = generateRandId();
 $idClient = "SELECT `client_idclient` FROM `client` WHERE `client_clientlogin` = '$loginUser'";
 $idPayment = "SELECT `payment_idpayment` FROM `payment` WHERE `payment_idclient` = '$idClient'";
 $nbPersons = (isset($_POST['number']) ? $_POST['number'] : "" );
-$idRoom = checkRoomAvailable($bathroom, $nbPersons, $arrivalDate, $departureDate);
+$roomNbr = getRoomAvailable($arrivalDate, $departureDate);
 $nbNights = calculateNbNights($arrivalDate, $departureDate);
 $price = calculatePrice($nbNights, $arrivalDate, $idRoom,$board);
 $canceled = 0;
 if (isset($_POST['number'])){$nbPersons = $_POST['number'];}
 $purpose = (isset($_POST['purpose']) ? $_POST['purpose'] : '');
 $_SESSION["idBooking"]=$idBooking;
-$newBooking = "INSERT INTO `booking` (`booking_idbooking`, `booking_idroom`, `booking_idclient`, `booking_idpayment`, `booking_datestart`, `booking_dateend`, `booking_nbnights`, `booking_price`, `booking_canceled`, `booking_nbpersons`, `booking_purpose`) VALUES ('$idBooking', '$idRoom', '$idClient', '$idPayment', '$arrivalDate', '$departureDate', '$nbNights', '$price', '$canceled', '$nbPersons', '$purpose'";
+$newBooking = "INSERT INTO `booking` (`booking_idbooking`, `booking_idroom`, `booking_idclient`, `booking_idpayment`, `booking_datestart`, `booking_dateend`, `booking_nbnights`, `booking_price`, `booking_canceled`, `booking_nbpersons`, `booking_purpose`) 
+                              VALUES ('$idBooking',       '$idRoom',        '$idClient',         '$idPayment',       '$arrivalDate',      '$departureDate',     '$nbNights',       '$price',      '$canceled',       '$nbPersons',           '$purpose'";
