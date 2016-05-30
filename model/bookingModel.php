@@ -68,7 +68,7 @@ function getArrayRoomAvailable($dateStart,$dateEnd) { //
         2 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => false,
+            'bathroom' => true,
             'nbPersons' => '1'
         ),
         3 => array(
@@ -80,52 +80,46 @@ function getArrayRoomAvailable($dateStart,$dateEnd) { //
         4 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => false,
-            'nbPersons' => 1
+            'bathroom' => true,
+            'nbPersons' => 2
         ),
         5 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => true,
+            'bathroom' => false,
             'nbPersons' => 2
         ),
         6 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => false,
+            'bathroom' => true,
             'nbPersons' => 2
         ),
         7 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => true,
+            'bathroom' => false,
             'nbPersons' => 2
         ),
         8 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => false,
+            'bathroom' => true,
             'nbPersons' => 2
         ),
         9 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => true,
+            'bathroom' => false,
             'nbPersons' => 2
         ),
         10 => array(
             'roomNbr' => '1',
             'available' => false,
-            'bathroom' => false,
-            'nbPersons' => 2
-        ),
-        11 => array(
-            'roomNbr' => '1',
-            'available' => false,
             'bathroom' => true,
             'nbPersons' => 2
         ),
-        12 => array(
+        11 => array(
             'roomNbr' => '1',
             'available' => false,
             'bathroom' => false,
