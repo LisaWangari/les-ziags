@@ -98,7 +98,7 @@
 
                     <!-- Signin form -->
                     <div class="container">
-                        <form action="/model/signinModel.php" method="post" id="login__form-signin">
+                        <form action="controller/Router.php" method="post" id="login__form-signin">
                             <h5>Se connecter</h5>
                             <div class="input-container input-container-username"><input type="text" placeholder="Email / Nom d'utilisateur" name="username" /></div>
                             <div class="input-container input-container-password"><input type="password" placeholder="Mot de passe" name="password" /></div>
@@ -109,7 +109,7 @@
 
                     <!-- Signup form -->
                     <div class="container">
-                        <form action="" method="post" id="login__form-signup">
+                        <form method="post" id="login__form-signup">
                             <h5>Pas encore inscrit ?</h5>
                             <h3>Créer un compte</h3>
                             <input type="text" placeholder="Nom" name="firstname" />

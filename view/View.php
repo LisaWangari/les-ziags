@@ -23,7 +23,7 @@ class View
         // Generate specific part of the view
         $content = $this->generate_file($this->file, $data);
         // Generate common parts
-        $view = $this->generate_file('Vue/gabarit.php', array('title' => $this->title, 'content' => $content));
+        $view = $this->generate_file('view/gabarit.php', array('title' => $this->title, 'content' => $content));
         // Send view to browser
         echo $view;
     }
@@ -38,7 +38,7 @@ class View
             // Starts exit timeout
             ob_start();
             // Include view file
-            require $file;
+            require "$file";
             // Stops timeout and returns ob_get_clean
             return ob_get_clean();
         }

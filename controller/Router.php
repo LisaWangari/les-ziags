@@ -1,6 +1,6 @@
 <?php
 
-require_once 'LoginController.php';
+require_once 'SignInController.php';
 require_once '../view/View.php';
 
 /**
@@ -9,21 +9,21 @@ require_once '../view/View.php';
  */
 class Router
 {
-    private $ctrl_login;
+    private $ctrl_signin;
 
     public function __construct()
     {
-        $this->ctrl_login = new LoginController();
+        $this->ctrl_signin = new SignInController();
     }
 
-    // Traite une requête entrante
+    // Compute an incoming request
     public function router_request()
     {
         try
         {
-            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            if (isset($_POST['username']) and isset($_POST['password']))
             {
-                
+                $this->ctrl_signin->client_login($_POST['username'], $_POST['password']);
             }
         }
         catch (Exception $e)

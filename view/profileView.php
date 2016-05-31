@@ -69,33 +69,33 @@
                         <div class="tab-content">
                             <div id="tab1" class="tab active">
                                 <figure class="user-avatar-container">
-                                    <?php echo user_avatar($row['client_idclient'], $row['client_gender']) ?>
-                                    <figcaption><?php echo $row['client_firstname']." ".$row['client_lastname']; ?></figcaption>
+                                    <?php echo user_avatar($client_infos['client_idclient'], $client_infos['client_gender']) ?>
+                                    <figcaption><?php echo $client_infos['client_firstname']." ".$client_infos['client_lastname']; ?></figcaption>
                                 </figure>
                                 <div class="tab-container">
                                     <table>
                                         <tr>
                                             <td class="user-info-section">Email</td>
-                                            <td><?php echo '<a href="mailto:'.$row['client_mail'].'" target="_blank">'.$row['client_mail'].'</a>' ?></td>
+                                            <td><?php echo '<a href="mailto:'.$client_infos['client_mail'].'" target="_blank">'.$client_infos['client_mail'].'</a>' ?></td>
                                         </tr>
                                         <tr>
                                             <td class="user-info-section">Adresse</td>
                                             <td>
-                                                <?php echo $row['client_streetnumber'].", ".htmlspecialchars($row['client_street'], ENT_QUOTES, 'UTF-8', true); ?><br/>
-                                                <?php echo $row['client_zipcode']." ".$row['client_city']; ?><br />
-                                                <?php echo  $row['client_country']; ?>
+                                                <?php echo $client_infos['client_streetnumber'].", ".htmlspecialchars($client_infos['client_street'], ENT_QUOTES, 'UTF-8', true); ?><br/>
+                                                <?php echo $client_infos['client_zipcode']." ".$client_infos['client_city']; ?><br />
+                                                <?php echo  $client_infos['client_country']; ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="user-info-section">Nationalité</td>
                                             <td>
-                                                <?php echo $row['client_country']; ?>
+                                                <?php echo $client_infos['client_country']; ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="user-info-section">Téléphone</td>
                                             <td>
-                                                <?php echo $row['client_cellphone']; ?>
+                                                <?php echo $client_infos['client_cellphone']; ?>
                                             </td>
                                         </tr>
                                         <tr>
@@ -119,7 +119,7 @@
                                                 <td class="user-info-section">Avatar</td>
                                                 <td colspan="2">
                                                     <div class="user-avatar-container">
-                                                        <?php echo user_avatar($row['client_idclient'], $row['client_gender']) ?>
+                                                        <?php echo user_avatar($client_infos['client_idclient'], $client_infos['client_gender']) ?>
                                                         <input type="file" name="nom" />
                                                     </div>
                                                     <br />
@@ -128,41 +128,41 @@
                                             <tr>
                                                 <td class="user-info-section">Email</td>
                                                 <td colspan="2">
-                                                    <?php echo '<input type="email" id="user-email" name="user_email" value="'.$row['client_mail'].'" placeholder="xyz@example.com" />'; ?>
+                                                    <?php echo '<input type="email" id="user-email" name="user_email" value="'.$client_infos['client_mail'].'" placeholder="xyz@example.com" />'; ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td rowspan="3" class="user-info-section">Adresse</td>
                                                 <td>
                                                     <label for="user-street-number">N°</label><br />
-                                                    <?php echo '<input type="number" value="'.$row['client_streetnumber'].'" id="user-street-number" name="user_street_number" />'; ?><br />
+                                                    <?php echo '<input type="number" value="'.$client_infos['client_streetnumber'].'" id="user-street-number" name="user_street_number" />'; ?><br />
                                                 </td>
                                                 <td>
                                                     <label for="user-street-name">Voie</label><br />
-                                                    <?php echo '<input type="text" value="'.$row['client_street'].'" id="user-street-name" name="user_street_name" />'; ?><br />
+                                                    <?php echo '<input type="text" value="'.$client_infos['client_street'].'" id="user-street-name" name="user_street_name" />'; ?><br />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <label for="user-zip-code">Code Postal</label><br />
-                                                    <?php echo '<input type="number" value="'.$row['client_zipcode'].'" id="user-zip-code" name="user_zip_code" />'; ?><br />
+                                                    <?php echo '<input type="number" value="'.$client_infos['client_zipcode'].'" id="user-zip-code" name="user_zip_code" />'; ?><br />
                                                 </td>
                                                 <td>
                                                     <label for="user-city">Ville</label><br />
-                                                    <?php echo '<input type="text" value="'.$row['client_city'].'" id="user-city" name="user_city" />'; ?><br />
+                                                    <?php echo '<input type="text" value="'.$client_infos['client_city'].'" id="user-city" name="user_city" />'; ?><br />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
                                                     <label for="user-country">Pays</label><br />
-                                                    <?php echo '<input type="text" value="'.$row['client_country'].'" id="user-country" name="user_country" />' ?><br />
+                                                    <?php echo '<input type="text" value="'.$client_infos['client_country'].'" id="user-country" name="user_country" />' ?><br />
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="user-info-section">
                                                     <label for="user-cellphone">Téléphone</label>
                                                 <td colspan="2">
-                                                    <?php echo '<input type="text" value="'.$row['client_cellphone'].'" id="user-cellphone" name="user_cellphone" />'; ?>
+                                                    <?php echo '<input type="text" value="'.$client_infos['client_cellphone'].'" id="user-cellphone" name="user_cellphone" />'; ?>
                                                 </td>
                                             </tr>
                                             <tr>

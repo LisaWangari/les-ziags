@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT `client_idclient` FROM `client` WHERE `client_clientlogin` = '$myusername' AND `client_clientpass` = '$mypassword'";
     $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
+    $client_infos = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $client_infos['active'];
 
     $count = mysqli_num_rows($result);
 
-    // If result matched $myusername and $mypassword, table row must be 1 row
+    // If result matched $myusername and $mypassword, table client_infos must be 1 client_infos
 
     if($count == 1) {
         $_SESSION['login_user'] = $myusername;
