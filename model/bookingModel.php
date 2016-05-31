@@ -46,65 +46,98 @@ function calculateNbNights($start, $end) {
     return $day_diff;
 }
 
-function checkRoomAvailable($bathroom,$numberPersons,$dateStart,$dateEnd) {
-    //returns booking_roomnbr if a room is free else returns 0
-    if ($bathroom == 1 && $numberPersons == 1){
-        //rooms : nbr1 nbr3
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '1' AND b.booking_datestart < $dateEnd  AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '1' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 1;}
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '3' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '3' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 3;}else{return 0;}
-    }
-    if ($bathroom == 0 && $numberPersons == 1){ //rooms : nbr2 nbr4
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '2' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '2' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 2;}
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '4' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '4' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 4;}else{return 0;}
-    }
-    if ($bathroom == 1 && $numberPersons == 2){ //rooms : nbr5 nbr7 nbr9 nbr11
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '5' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '5' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 5;}
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '7' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '7' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 7;}
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '9' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '9' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 9;}
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '11' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '11' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return 11;}else{return 0;}
-    }
-    if ($bathroom == 0 && $numberPersons == 2) { //rooms : nbr6 nbr8 nbr10 nbr12
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '6' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '6' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart < $lastDateEnd && $lastDateEnd < $dateStart) {
-            return 6;
-        }
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '8' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '8' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart < $lastDateEnd && $lastDateEnd < $dateStart) {
-            return 8;
-        }
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '10' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '10' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart < $lastDateEnd && $lastDateEnd < $dateStart) {
-            return 10;
-        }
-        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '12' AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
-        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = '12' AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
-        if ($lastDateStart < $lastDateEnd && $lastDateEnd < $dateStart) {
-            return 12;
-        } else {
-            return 0;
-        }
-    } else {
-        return 0;
-    }
-
+function checkDates ($room,$dateStart,$dateEnd){
+        $lastDateStart = "SELECT b.booking_datestart FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = $room AND b.booking_datestart < $dateEnd AND b.booking_canceled = '0' ORDER BY b.booking_datestart DESC LIMIT 1";
+        $lastDateEnd = "SELECT b.booking_dateend FROM booking b , room r where b.booking_idroom = r.room_idroom AND r.room_roomnbr = $room AND b.booking_dateend< $dateEnd ORDER BY b.booking_datestart DESC LIMIT 1";
+        if ($lastDateStart <$lastDateEnd && $lastDateEnd < $dateStart){return TRUE;}else {return FALSE;}
+}
+function getArrayRoomAvailable($dateStart,$dateEnd) { //
+    $roomList = array(
+        0 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 1
+        ),
+        1 => array(
+            'roomNbr' => '2',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => '1'
+        ),
+        2 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => '1'
+        ),
+        3 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 1
+        ),
+        4 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        5 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        6 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        7 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        8 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        9 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        ),
+        10 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => true,
+            'nbPersons' => 2
+        ),
+        11 => array(
+            'roomNbr' => '1',
+            'available' => false,
+            'bathroom' => false,
+            'nbPersons' => 2
+        )
+    );
+        if (checkDates(1, $dateStart, $dateEnd)) { $roomList[0]['available'] = true ; }
+        if (checkDates(2, $dateStart, $dateEnd)) { $roomList[1]['available'] = true ; }
+        if (checkDates(3, $dateStart, $dateEnd)) { $roomList[2]['available'] = true ; }
+        if (checkDates(4, $dateStart, $dateEnd)) { $roomList[3]['available'] = true ; }
+        if (checkDates(5, $dateStart, $dateEnd)) { $roomList[4]['available'] = true ; }
+        if (checkDates(6, $dateStart, $dateEnd)) { $roomList[5]['available'] = true ; }
+        if (checkDates(7, $dateStart, $dateEnd)) { $roomList[6]['available'] = true ; }
+        if (checkDates(8, $dateStart, $dateEnd)) { $roomList[7]['available'] = true ; }
+        if (checkDates(9, $dateStart, $dateEnd)) { $roomList[8]['available'] = true ; }
+        if (checkDates(10, $dateStart, $dateEnd)) { $roomList[9]['available'] = true ; }
+        if (checkDates(11, $dateStart, $dateEnd)) { $roomList[10]['available'] = true ; }
+        if (checkDates(12, $dateStart, $dateEnd)) { $roomList[11]['available'] = true ; }
+        return $roomList;
 }
 
